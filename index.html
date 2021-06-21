@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+	<title>psd</title>
+	 <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!-- start-smooth-scrolling -->
+  <link rel="stylesheet" media="screen and (max-width: 767px)" href="css/mobile.css" /> <!-- This works fine -->
+    <link rel="stylesheet" media="screen and (min-width: 768px)" href="css/tablet.css" /> <!-- This works fine -->
+    <link rel="stylesheet" media="screen and (min-width: 1000px)" href="css/desktop.css" /> <!-- Doesn't work -->
+  <script src="jq/jquery-3.5.1.min.js" ></script>
+
+	<script  src="css/bootstrap.min.js" ></script>
+    
+
+
+  <script>
+    //globals
+var apiKey = "pk.eyJ1IjoieW91bmdlcmFzc29jaWF0ZXMiLCJhIjoiY2ltczIzNGFrMDFjZ3V3bTQ1dGNzYjVkMyJ9.hfJiiN48wWpWQGEaT_sWhw";
+var mapCenter = [36.308056, -87.949444]
+
+L.mapbox.accessToken = apiKey;
+
+var map = L.mapbox.map('map', 'mapbox.light',{
+  zoomControl: true
+}).setView([mapCenter[0], mapCenter[1]], 9);
+
+// Disable drag and zoom handlers.
+map.dragging.disable();
+map.touchZoom.disable();
+// map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
+// map.keyboard.disable();
+
+// Add Feature Layer to map
+var markers = L.mapbox.featureLayer().addTo(map);
+
+// Initialize geoJson Data
+var geoJson = [{
+  type: 'Feature',
+  geometry: {
+    type: 'Point',
+    coordinates: [-87.949444, 36.308056]
+  },
+  properties: {
+    title: 'Benton-Houston Ferry',
+    address: '1234 Fake Street, Somewhere, TN 38888',
+    description: 'Some Random text',
+    'water': true,
+    'outdoor': true,
+    'civil': false,
+    'wildlife': true,
+    'heritage': false,
+    'marker-color': '#94a748'
+  }
+}, {
+  type: 'Feature',
+  geometry: {
+    type: 'Point',
+    coordinates: [-88.047624, 35.969574]
+  },
+  properties: {
+    title: 'Birdsong Resort, Marina, and Campground',
+    address: '1234 Fake Street, Somewhere, TN 38888',
+    description: 'Some Random text',
+    'water': true,
+    'outdoor': false,
+    'civil': false,
+    'wildlife': true,
+    'heritage': true,
+    'marker-color': '#94a748'
+  }
+}, {
+  type: 'Feature',
+  geometry: {
+    type: 'Point',
+    coordinates: [-87.97416, 36.08868]
+  },
+  properties: {
+    title: 'Nathan Bedford Forrest State Park',
+    address: '1234 Fake Street, Somewhere, TN 38888',
+    description: 'Some Random text',
+    'water': true,
+    'outdoor': true,
+    'civil': true,
+    'wildlife': true,
+    'heritage': false,
+    'marker-color': '#94a748'
+  }
+}, {
+  type: 'Feature',
+  geometry: {
+    type: 'Point',
+    coordinates: [-87.997892, 36.060605]
+  },
+  properties: {
+    title: 'Nathan Bedford Forrest State Park, Eva Beach Day Use Area',
+    address: '1234 Fake Street, Somewhere, TN 38888',
+    description: 'Some Random text',
+    'water': true,
+    'outdoor': false,
+    'civil': false,
+    'wildlife': true,
+    'heritage': true,
+    'marker-color': '#94a748'
+  }
+}, {
+  type: 'Feature',
+  geometry: {
+    type: 'Point',
+    coordinates: [-88.040368, 35.612822]
+  },
+  properties: {
+    title: 'Beech Bend Campground',
+    address: '1234 Fake Street, Somewhere, TN 38888',
+    description: 'Some Random text',
+    'water': true,
+    'outdoor': false,
+    'civil': false,
+    'wildlife': false,
+    'heritage': false,
+    'marker-color': '#94a748'
+  }
+}, {
+  type: 'Feature',
+  geometry: {
+    type: 'Point',
+    coordinates: [-88.240664, 35.052063]
+  },
+  properties: {
+    title: 'Pickwick Landing State Park',
+    address: '1234 Fake Street, Somewhere, TN 38888',
+    description: 'Some Random text',
+    'water': true,
+    'outdoor': false,
+    'civil': true,
+    'wildlife': true,
+    'heritage': false,
+    'marker-color': '#94a748'
+  }
+}, {
+  type: 'Feature',
+  geometry: {
+    type: 'Point',
+    coordinates: [-88.193049, 35.070611]
+  },
+  properties: {
+    title: 'Pickwick Landing State Park, Bruton Branch Recreation Area Campground',
+    address: '1234 Fake Street, Somewhere, TN 38888',
+    description: 'Some Random text',
+    'water': true,
+    'outdoor': true,
+    'civil': false,
+    'wildlife': true,
+    'heritage': true,
+    'marker-color': '#94a748'
+  }
+}, {
+  type: 'Feature',
+  geometry: {
+    type: 'Point',
+    coordinates: [-88.23479300000001, 35.052419]
+  },
+  properties: {
+    title: 'Pickwick Landing State Park Marina',
+    address: '1234 Fake Street, Somewhere, TN 38888',
+    description: 'Some Random text',
+    'water': true,
+    'outdoor': true,
+    'civil': false,
+    'wildlife': false,
+    'heritage': false,
+    'marker-color': '#94a748'
+  }
+}, {
+  type: 'Feature',
+  geometry: {
+    type: 'Point',
+    coordinates: [-88.20159, 35.354458]
+  },
+  properties: {
+    title: 'Saltillo Landing and Marina',
+    address: '1234 Fake Street, Somewhere, TN 38888',
+    description: 'Some Random text',
+    'water': true,
+    'outdoor': false,
+    'civil': false,
+    'wildlife': true,
+    'heritage': false,
+    'marker-color': '#94a748'
+  }
+}, {
+  type: 'Feature',
+  geometry: {
+    type: 'Point',
+    coordinates: [-88.293174, 35.355906]
+  },
+  properties: {
+    title: 'White Oak Wildlife Management Area',
+    address: '1234 Fake Street, Somewhere, TN 38888',
+    description: 'Some Random text',
+    'water': true,
+    'outdoor': false,
+    'civil': false,
+    'wildlife': true,
+    'heritage': false,
+    'marker-color': '#94a748'
+  }
+}];
+
+markers.setGeoJSON(geoJson);
+
+// Listener for marker click
+markers.on('click', function(e) {
+  // Force close the popup.
+  e.layer.closePopup();
+
+  var feature = e.layer.feature;
+  var title = feature.properties.title;
+  var content = feature.properties.description;
+  var latlng = feature.geometry.coordinates;
+
+  // Modal Content
+  $("#marker_title").text(title);
+  $("#marker_content").text(content);
+  $("#marker_latlng").text(formatLatLng(latlng));
+
+  $('#exampleModal').modal('show');
+});
+
+// Filter click event
+$('.menu-ui a').on('click', function() {
+  var filter = $(this).data('filter');
+  $(this).addClass('active').siblings().removeClass('active');
+  markers.setFilter(function(f) {
+    return (filter === 'all') ? true : f.properties[filter] === true;
+  });
+  return false;
+});
+
+// Clear Modal Data
+function empty() {
+  // TODO: Clear Modal when Modal is closed for next marker clicked
+}
+
+// Formats Latitude and Longitude for Modal
+function formatLatLng(latlng) {
+  // TODO: Format Latitude and Longitude
+  return latlng;
+}
+
+
+
+    
+  </script>
+
+
+  <style > 
+    @media only screen and (min-width: 500px) and (max-width:700px){
+                    #m1{ height:100px;background-color:lightgray;
+                  }
+                   }
+                    @media only screen and (min-width: 500px) and (max-width:700px){
+                    #mq2{ height:auto;background-color:lightblue;  
+                  }
+                   }
+                    @media only screen and (min-width: 500px) and (max-width:750px){
+                    #e{ display: none;  
+                  }
+                  #btnn{display: none; 
+                   }
+                  }
+                  @media only screen and (min-width:500px) and (max-width:699px){
+                    #last{margin-top:0px;  
+                  }
+                   }
+                   @media only screen and (min-width:700px) and (max-width:7 00px){
+                    #last{margin-top:760px;  
+                  }
+                   }
+                   @media only screen and (min-width:500px) and (max-width:850px){
+                    #at{width: auto;  
+                  }
+                   }
+
+                   @media only screen and (min-width:800px) and (max-width:1000px){
+                    #mhe{font-size:10px;  
+                  }
+                  #mhe2{font-size:20px;
+                   }
+                  }
+                  
+
+                
+
+  </style>
+  <style>
+    body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+  </style>
+  </head>
+<body>
+  
+<nav class="iq-top-navbar rtl-iq-top-navbar" class="boder1" style="border-radius: 0px; border:none;height: 100px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#"><img src="img/aaa.png" style="margin-left: 100px;"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right" style="margin-right: 100px; margin-top: 10px;">
+        <li class="active"><a href="#" style="background-color:#330849;">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">About</a>
+        </li>
+        <li><a href="#">Work</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+        
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-lg-2 col-md-3 col-sm-2 col-xm-4 uos" id="m1">
+      <!--start-->
+            
+<nav class='menu-ui'>
+  <a href='#' class='active' data-filter='all'>Show all</a>
+  <a href='#' data-filter='water'>Gallery</a>
+  <a href='#' data-filter='outdoor'>Blog</a>
+  <a href='#' data-filter='civil'>Plugin</a>
+  <a href='#' data-filter='wildlife'>Table</a>
+  <a href='#' data-filter='heritage'>Email</a>
+  <a href='#' data-filter='heritage'>Sign in</a>
+  <a href='#' data-filter='heritage'>Sign up</a>
+</nav>
+
+<div id='map'></div>
+
+<!-- Modal to be populated on click -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 id="marker_title" class=""></h2>
+        <img id="marker_image" class="" src="" />
+        <p id="marker_latlng" class=""></p>
+        <address id="marker_address" class=""></address>
+        <p id="marker_content" class=""></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!--End-->
+    </div>
+    <div class="col-lg-6 col-md-5 col-sm-6 col-xm-4 second" id="mq2">
+      <div class="row" id="at">
+        <h3 id="e">WelCome To Dashboard</h3>
+          
+        <div class=" col-md-4 col-sm-4 col-xm-4 second_inner">
+            <div class="second_inner_1">
+              <img src="img/ae.png" style="margin-left:15px; margin-top:20px;" class="responsive" class="img_iner">
+                <span class="text-primary">
+                  <i class="tawel" id="tawel2">+12.12%</i>
+                </span>
+                  <div class="he" id="mhe"><h2 id="mhe2">76.64k</h2>
+              <span>Google ads Conversions</span>
+            </div>    
+        </div>
+      </div>
+
+
+        <div class="col-md-4 col-sm-4 col-xm-4 uos1">
+          <div class="second_inner_2">
+          
+            <img src="img/ae.png" style="margin-left:15px; margin-top:20px;" class="responsive" class="img_iner">
+                <span class="text-primary">
+                  <i class="tawel" id="tawel2">-42.12%</i>
+                </span> 
+          
+          <div class="he2" id="mhe"><h2 id="mhe2">$,7323.34</h2>
+              <span>Google ads Cost</span>
+           </div>  
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-2 col-xm-4 uos2">
+          <div class="second_inner_3">
+             <img src="img/ae.png" style="margin-left:15px; margin-top:20px;" class="responsive" class="img_iner">
+                <span class="text-primary">
+                  <i class="tawel" id="tawel2">+42.72%</i>
+                </span>
+            
+          <div class="he2" id="mhe"><h2 id="mhe2">4,043</h2>
+              <span>Google ads Clicks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="height: auto;">
+        <div class=" col-md-4 col-sm-4 col-xm-4 uos3">
+          <div class="second_inner_4">
+            <img src="img/ae.png" style="margin-left:15px; margin-top:20px;" class="responsive" class="img_iner">
+                <span class="text-primary">
+                  <i class="tawel" id="tawel2">-42.72%</i>
+                </span>
+         
+          <div class="he2" id="mhe"><h2 id="mhe2">76.56.23%</h2>
+              <span>Google ads Conversions Rate</span>
+            </div>
+           </div>
+        </div>
+        <div class=" col-md-4 col-sm-4 col-xm-4 uos4">
+          <div class="second_inner_5">
+              <img src="img/ae.png" style="margin-left:15px; margin-top:20px;" class="responsive" class="img_iner">
+                <span class="text-primary">
+                  <i class="tawel" id="tawel2">+42.72%</i>
+                </span>
+          
+          <div class="he2" id="mhe"><h2 id="mhe2">76.64k</h2>
+              <span>Google ads cost Conversions</span>
+            </div>
+          </div>
+        </div>   
+        
+        <div class=" col-md-4 col-sm-4 col-xm-4 uos5">
+          <div class="second_inner_6">
+            <img src="img/ae.png" style="margin-left:15px; margin-top:20px;" class="responsive" class="img_iner">
+                <span class="text-primary">
+                  <i class="tawel" id="tawel2">-42.72%</i>
+                </span>
+          
+          <div class="he2" id="mhe"><h2 id="mhe2">53.6k</h2>
+              <span>Google ads Impressions Rate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xm-4 uos6" id="last"><button type="button" class="btn1" id="btnn">Google Ads</button>
+      <button type="button" class="btn2" id="btnn">+</button>
+      <div class="rightsidebar" style="background-color:white; padding: 10px; height:380px; width:400px; border-radius: 7px;">
+              <h3 style="text-align:center; margin-top:-5px;"> Top Keywords (Conversions)</h3>
+            <h4>Agency Analytics</h4> 
+          <div class="progress">
+  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="67"   
+  aria-valuemin="0" aria-valuemax="100" style="width:67%">
+    67%
+  </div>
+</div>
+  <h4>Seo Report  </h4> 
+<div class="progress">
+
+  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50"
+  aria-valuemin="0" aria-valuemax="100" style="width:50%">
+    50%
+  </div>
+</div>
+  <h4>Social Media reporting</h4> 
+<div class="progress">
+  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="86"
+  aria-valuemin="0" aria-valuemax="100" style="width:86%">
+    86%
+  </div>
+</div>
+  <h4>Web Ads</h4> 
+<div class="progress">
+  <div class="progress-bar progress-bar danger" role="progressbar" aria-valuenow="47"
+  aria-valuemin="0" aria-valuemax="100" style="width:47%">
+    47%
+  </div>
+</div>
+  <h4>YouTube Ads</h4> 
+    <div class="progress">
+  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70"
+  aria-valuemin="0" aria-valuemax="100" style="width:79%">
+    79%
+  </div>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-2 col-md-3 col-sm-2 col-xm-4 uos_2" id="m1">
+      <!--<div id="map"></div>-->
+            <!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display a map on a webpage</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+  // TO MAKE THE MAP APPEAR YOU MUST
+  // ADD YOUR ACCESS TOKEN FROM
+  // https://account.mapbox.com
+  mapboxgl.accessToken = '<your access token here>';
+var map = new mapboxgl.Map({
+container: 'map', // container id
+style: 'mapbox://styles/mapbox/streets-v11', // style URL
+center: [-74.5, 40], // starting position [lng, lat]
+zoom: 9 // starting zoom
+});
+</script>
+ 
+</body>
+</html>
+
+     </div>
+      <div class="col-lg-6 col-md-5 col-sm-6 col-xm-4 second_2" id="mq2">
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xm-4 uos6_1" id="last">
+      </div>
+  </div>
+</div>
+</body>
+</html>

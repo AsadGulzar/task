@@ -1,0 +1,284 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+
+
+
+
+
+
+
+
+#map{
+  width: 100%;
+  height: 1000px;
+  position: relative;
+}
+
+.menu-ui {
+  background:#fff;
+  position:absolute;
+  top:100px;
+  left:10px;
+  z-index:1;
+  border-radius:3px;
+  width:120px;
+  border:1px solid rgba(0,0,0,0.4);
+  }
+  .menu-ui a {
+    font-size:13px;
+    color:#404040;
+    display:block;
+    margin:0;padding:0;
+    padding:10px;
+    text-decoration:none;
+    border-bottom:1px solid rgba(0,0,0,0.25);
+    text-align:center;
+    }
+    .menu-ui a:first-child {
+      border-radius:3px 3px 0 0;
+      }
+    .menu-ui a:last-child {
+      border:none;
+      border-radius:0 0 3px 3px;
+      }
+    .menu-ui a:hover {
+      background:#f8f8f8;
+      color:#404040;
+      cursor: pointer !important;
+      }
+    .menu-ui a.active,
+    .menu-ui a.active:hover {
+      background:#3887BE;
+      color:#FFF;
+      }
+
+.info {
+  position:absolute;
+  top:100px;
+  left:10px;
+  }
+  .info div {
+    background:#fff;
+    padding:10px;
+    border-radius:3px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.uos{
+	background-color:lightgray;
+	height:500px;"
+	}
+.uos_2{
+	background-color:lightblue;
+	height:500px;"
+}
+.second_2{
+	background-color:white;
+		height:500px;
+
+}
+.uos6_1{
+background-color:lightgreen;
+	height:500px;
+}
+
+
+
+
+	
+.second{
+		background-color:lightgray;
+		height:500px;
+		}
+.second_inner{
+			 background-color:Lightgray;
+			 height:200px;
+			}
+.second_inner_1{
+		height:180px;
+		 width:auto;
+          margin-top:10px;
+          background-color:white;
+          border-radius: 7px;
+
+      			}
+      			.he{
+      				background-color:white;
+      				height:70px;
+      				width:auto;
+      				padding-left: 10px;
+      				margin-left:10px;
+      			}
+
+      			.tawel{ margin-left:80px; }
+
+.uos1{
+	background-color:lightgray;
+	height:200px;
+}
+
+.second_inner_2{
+				height:180px;
+				width:auto;
+          		margin-top:10px;
+          		position:relative;
+          		background-color:white;
+          		border-radius: 7px;
+          		}
+          		.he2{
+      				background-color:white;
+      				height: auto;
+      				width:auto;
+      				
+      				margin-left:10px;
+      			}
+
+.uos2{
+	background-color:lightgray;
+	height:200px;}
+	.uos2_2{
+	background-color:lightblue;
+	height:200px;}
+
+.second_inner_3{
+			height:180px; 
+			width: auto;
+          	margin-top:10px;
+          	background-color:white;
+          	border-radius: 7px;
+          		}
+.uos3{
+	background-color:lightgray;
+	height:200px;}
+.second_inner_4{
+			height:180px;
+			width:auto;
+          	margin-top:10px;
+          background-color:white;
+          border-radius: 7px;
+      			}
+
+.uos4{
+	background-color:lightgray;
+	height:200px;
+	}
+.second_inner_5{
+				height:180px;
+				width: auto;
+          		margin-top:10px;
+          		background-color:white;
+          		border-radius: 7px;
+          		}
+
+.uos5{
+	background-color:lightgray;
+	height:200px;
+	}
+.second_inner_6{height:180px;
+				width: auto;
+          		margin-top:10px;
+          		background-color:white;
+          		border-radius: 7px;
+          		}
+
+.uos6{
+	background-color:lightgray;
+	height:500px;
+	}
+.btn1{height:45px; 
+		width:130px; 
+		background-color:Tomato;
+		border:none; 
+		border-radius:4px; 	
+		color: white;
+		font-size:18px;
+	}
+
+.btn2{margin:10px;
+	color: white;
+	background-color:Tomato;
+	border:none;
+	border-radius:4px;
+	height:44px;
+	width:35px;}
+
+
+.img_iner{
+	float:left;
+	height:100px;
+	width:100px;
+	padding:10px;}
+
+
+
+
+
+/*#inner_1st{
+
+
+
+	background-color: green;
+	height: 500px;
+}
+#inner_2nd{
+	height: 500px;
+	background-color: orange;
+
+}
+#inner_2nd_1{
+background-color:#1E1EAF;
+height:250px;"
+}
+#inner_2nd_2{
+background-color:lightgreen;
+height:250px;"	
+}
+#inner_2nd_3{
+background-color:lightblue;
+height:250px;"	
+}
+#inner_3rd_1{
+background-color:gray;
+height:250px;"
+}
+#inner_3rd_2{
+background-color:orange;
+height:250px;"
+	
+}
+#inner_3rd_3{
+background-color:pink;
+height:250px;"
+	
+}
+#inner_last{
+background-color:blue;
+height: 500px;
+}*/
